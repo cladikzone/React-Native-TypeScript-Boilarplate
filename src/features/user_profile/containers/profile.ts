@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-import Events from '../components';
+import { bindActionCreators } from 'redux';
+import UserProfile from '../components';
+import getUser  from '../actions';
 
-const mapStateToProps = state => ({...state});
-const mapDispatchToProps = dispatch => ({ ...dispatch });
+const mapStateToProps = state => ({
+    user: state.user
+});
 
-export const userProfile = connect(mapStateToProps, mapDispatchToProps)(
-    Events
-);
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(getUser , dispatch)
+});
+
+export const userProfile = connect(mapStateToProps, mapDispatchToProps)(UserProfile);
