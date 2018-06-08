@@ -1,0 +1,39 @@
+{
+	"name": "YOURAPPNAME",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"tsc": "tsc",
+		"clean": "rimraf build",
+		"build": "yarn  clean && yarn  tsc --",
+		"lint": "tslint src/**/*.ts",
+		"watch": "yarn  build -w",
+		"ios": "yarn  build && concurrently -r \"yarn  watch\" \"react-native run-ios\"",
+		"android": "yarn  build && concurrently -r \"yarn  watch\" \"react-native run-android\"",
+		"setup": "node pre.js && npm install && react-native eject && node pre.js isAssets && move webcontents android/app/src/main/assets/web && yarn build && yarn android_bundle",
+		"android_bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && yarn android"
+	},
+	"dependencies": {
+		"react": "16.3.1",
+		"react-native": "0.55.4"
+	},
+	"devDependencies": {
+		"@types/jest": "^23.0.0",
+		"@types/react": "^16.3.16",
+		"@types/react-native": "^0.55.17",
+		"babel-jest": "23.0.1",
+		"babel-preset-react-native": "4.0.0",
+		"concurrently": "^3.5.1",
+		"jest": "23.1.0",
+		"react-native-cli": "^2.0.1",
+		"react-test-renderer": "16.3.1",
+		"rimraf": "^2.6.2",
+		"tslint": "^5.10.0",
+		"typescript": "^2.9.1"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
