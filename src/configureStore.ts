@@ -20,13 +20,14 @@ const client = axios.create({
 });
 
 export default function configureStore(
-  history: History,
-  initialState: ApplicationState
+  // history: History,
+  // initialState: ApplicationState
 ): Store<ApplicationState> {
   const composeEnhancers = composeWithDevTools();
   return createStore(
     reducers,
-    initialState,
-    composeEnhancers(applyMiddleware(thunk, logger, axiosMiddleware(client), routerMiddleware(history)))
+    // initialState,
+    applyMiddleware(thunk, logger, axiosMiddleware(client))
+    // composeEnhancers()
   );
 }

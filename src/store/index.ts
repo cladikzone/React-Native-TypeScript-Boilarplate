@@ -1,4 +1,4 @@
-import { combineReducers, Dispatch, Reducer } from 'redux';
+import { combineReducers, Dispatch, Reducer, Action } from 'redux';
 // import { routerReducer } from 'react-router-redux';
 
 // Import your state types and reducers here.
@@ -15,7 +15,6 @@ export const reducers: Reducer<ApplicationState> = combineReducers<ApplicationSt
     chat: chatReducer
 });
 
-// tslint:disable-next-line:no-shadowed-variable
-export interface ConnectedReduxProps<Action> {
+export interface ConnectedReduxProps<S> {
     dispatch: Dispatch<any>;
 }

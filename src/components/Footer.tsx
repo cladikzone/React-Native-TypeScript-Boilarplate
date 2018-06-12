@@ -18,12 +18,12 @@ class Footer extends React.Component<FooterProps, State> {
 
   render() {
 
-    const {  dispatch } = this.props;
+    const {  dispatch, apiResponse   } = this.props;
 
     return(
       <View>
         <Text>This is the footer </Text>
-        <Button title='Test' onPress={ () => dispatch(makeApiCall('12')) } />
+        <Button title='Test' onPress={ () => dispatch(makeApiCall('12', 'GET')) } />
       </View>
     );
   }

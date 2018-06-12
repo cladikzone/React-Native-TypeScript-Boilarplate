@@ -10,8 +10,8 @@
 		"build": "yarn  clean && yarn  tsc --",
 		"lint": "tslint src/**/*.ts",
 		"watch": "yarn  build -w",
-		"ios": "yarn  build && concurrently -r \"yarn  watch\" \"react-native run-ios\"",
-		"android": "yarn  build && start cmd.exe /k \"yarn start\" && concurrently -r \"yarn  watch\" \"react-native run-android\" ",
+		"ios": "yarn  build && concurrently -r \"yarn  watch \" \"react-native run-ios\"",
+		"android": "yarn  build && start cmd.exe /k \"script.bat\" && concurrently -r \"yarn  watch\" \"react-native run-android\" ",
 		"setup": "node pre.js && npm install && react-native eject && node pre.js isAssets && move webcontents android/app/src/main/assets/web && yarn build && yarn android_bundle",
 		"android_bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && yarn android"
 	},
