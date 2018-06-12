@@ -1,4 +1,4 @@
 
-export const API = {
+export const API_CONFIG = {
     BASE_URL : 'https://api.github.com'
 };
